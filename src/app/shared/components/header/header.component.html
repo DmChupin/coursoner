@@ -1,0 +1,12 @@
+<div class="wrapper">
+  <div *ngIf="!authService.currentUserSig()">
+    <button (click)="login()">login</button>
+
+    <button (click)="register()">register</button>
+  </div>
+
+  <div *ngIf="!!authService.currentUserSig()">
+    <span>{{ authService.currentUserSig()?.username }}</span>
+    <button (click)="logout()">logout</button>
+  </div>
+</div>
