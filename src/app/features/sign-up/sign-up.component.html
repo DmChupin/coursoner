@@ -1,0 +1,73 @@
+<div class="wrapper">
+  <div class="signup">
+    <div class="signup-header">
+      <h2 class="signup-title">Зарегистрируйтесь и любите</h2>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="signup-form">
+      <div class="signup-inputs">
+        <div class="signup-input_wrapper">
+          <input
+            class="signup-input"
+            type="text"
+            formControlName="username"
+            title="Имя пользователя"
+            id="form-group-1"
+          />
+          <label
+            for="form-group-1"
+            class="signup-label"
+            [ngClass]="isUsernameFilled ? 'filled_label' : ''"
+            >Имя пользователя</label
+          >
+        </div>
+        <div class="signup-input_wrapper">
+          <input
+            class="signup-input"
+            type="email"
+            formControlName="email"
+            autocomplete="on"
+            id="form-group-2"
+          />
+          <label
+            for="form-group-2"
+            class="signup-label"
+            [ngClass]="isEmailFilled ? 'filled_label' : ''"
+            >Адрес электронной почты</label
+          >
+        </div>
+        <div class="signup-input_wrapper">
+          <input
+            class="signup-input"
+            type="password"
+            formControlName="password"
+            autocomplete="on"
+            id="form-group-3"
+          />
+          <label
+            for="form-group-3"
+            class="signup-label"
+            [ngClass]="isPasswordFilled ? 'filled_label' : ''"
+            >Пароль</label
+          >
+        </div>
+      </div>
+      <div class="signup-button_wrapper">
+        <button class="signup-button" type="submit">
+          <span class="signup-button-span">Зарегистрироваться</span>
+        </button>
+      </div>
+    </form>
+
+    <div class="divider-wrapper">
+      <div class="divider"></div>
+    </div>
+
+    <div class="login_route_wrapper">
+      <span class="login_route_text">
+        Уже есть учетная запись:
+        <a href="/sign-in" class="login_route_link"> Войти </a>
+      </span>
+    </div>
+  </div>
+</div>

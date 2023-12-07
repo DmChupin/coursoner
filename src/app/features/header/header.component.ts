@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../core/services/auth.service';
+import { AuthService } from '../../core/services/auth.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -27,4 +27,5 @@ export class HeaderComponent {
     this.authService.currentUserSig.set(null);
     this.router.navigateByUrl('/sign-in');
   }
+  showNotifications() {}
 }

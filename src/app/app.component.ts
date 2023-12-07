@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './shared/components/header/header.component';
+import { HeaderComponent } from './features/header/header.component';
 import { UserService } from './core/services/user.service';
 import { Subject, catchError, takeUntil, throwError } from 'rxjs';
 import { AuthService } from './core/services/auth.service';
