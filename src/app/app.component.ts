@@ -1,7 +1,7 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './shared/components/header/header.component';
+import { HeaderComponent } from './features/header/header.component';
 import { UserService } from './core/services/user.service';
 import { Subject, catchError, takeUntil, throwError } from 'rxjs';
 import { AuthService } from './core/services/auth.service';
@@ -13,7 +13,7 @@ import { AuthService } from './core/services/auth.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   private userService = inject(UserService);
   private authService = inject(AuthService);
   private destroy$ = new Subject<void>();
@@ -36,5 +36,10 @@ export class AppComponent implements OnInit {
           this.authService.currentUserSig.set(null);
         },
       });
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }

@@ -1,18 +1,26 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnDestroy,
+  OnInit,
+  inject,
+} from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../../core/services/user.service';
-import { Subject, catchError, takeUntil, throwError } from 'rxjs';
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
+import { Subject, catchError, takeUntil, throwError } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-sign-up',
+  selector: 'app-sign-in',
   standalone: true,
-  imports: [ReactiveFormsModule],
-  templateUrl: './sign-up.component.html',
-  styleUrl: './sign-up.component.scss',
+  imports: [ReactiveFormsModule, CommonModule],
+  templateUrl: './sign-in.component.html',
+  styleUrl: './sign-in.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SignUpComponent implements OnDestroy, OnInit {
+export class SignInComponent implements OnDestroy, OnInit {
   fb = inject(FormBuilder);
   userService = inject(UserService);
   authService = inject(AuthService);
@@ -20,26 +28,26 @@ export class SignUpComponent implements OnDestroy, OnInit {
 
   destroy$ = new Subject<void>();
 
+  isEmailFilled = false;
+  isPasswordFilled = false;
+
   form = this.fb.nonNullable.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.min(10)]],
-    username: ['', [Validators.required, Validators.min(5)]],
   });
 
   ngOnInit(): void {
-    /**
-     * обмен данными через подписку
-     */
-    // this.authService.userChange
-    //   .pipe(takeUntil(this.destroy$))
-    //   .subscribe((response) => {
-    //     console.log('authServiceResponse', response);
-    //   });
+    this.form.get('email')?.valueChanges.subscribe((value) => {
+      this.isEmailFilled = !!value;
+    });
+    this.form.get('password')?.valueChanges.subscribe((value) => {
+      this.isPasswordFilled = !!value;
+    });
   }
   onSubmit() {
     const user = this.form.getRawValue();
     this.userService
-      .registerUser(user)
+      .authenticateUser(user)
       .pipe(takeUntil(this.destroy$))
       .pipe(
         catchError((err) => {
@@ -51,10 +59,9 @@ export class SignUpComponent implements OnDestroy, OnInit {
         localStorage.setItem('token', response.user.token);
         //this.authService.changeUser(response.user);
         this.authService.currentUserSig.set(response.user);
-        this.router.navigateByUrl('/sign-in');
+        this.router.navigateByUrl('/courses');
       });
   }
-
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();

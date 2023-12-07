@@ -1,0 +1,54 @@
+<div class="wrapper">
+  <div class="header">
+    <div class="header-logo">
+      <img
+        class="header-logo-icon"
+        src="../../../../assets/logo.svg"
+        alt="logo"
+      />
+      <!-- <span class="header-logo-text">coursoner</span> -->
+    </div>
+
+    <div class="header-search">
+      <input
+        class="header-search-input"
+        type="search"
+        placeholder="Найди курс своей мечты"
+      />
+    </div>
+    <div class="header-buttons-panel">
+      <div class="header-buttons">
+        <button class="header-buttons-rounded">
+          <img
+            class="header-buttons-rounded-icon"
+            src="../../../../assets/notification-bell.svg"
+            alt="Уведомление"
+          />
+        </button>
+      </div>
+      <div *ngIf="!authService.currentUserSig()" class="header-buttons">
+        <button (click)="login()" class="header-buttons-button">Войти</button>
+
+        <!-- <button (click)="register()" class="header-buttons-button">
+          register
+        </button> -->
+      </div>
+
+      <div *ngIf="!!authService.currentUserSig()" class="header-buttons">
+        <button class="header-buttons-rounded">
+          <span class="header-buttons-rounded-user">
+            {{
+              !!authService.currentUserSig()?.username
+                ? authService
+                    .currentUserSig()
+                    ?.username?.slice(0, 2)
+                    ?.toUpperCase()
+                : ""
+            }}
+          </span>
+        </button>
+        <button (click)="logout()" class="header-buttons-button">Выйти</button>
+      </div>
+    </div>
+  </div>
+</div>
