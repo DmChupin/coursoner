@@ -1,0 +1,15 @@
+$color-primary-700: #8bca58;
+.wrapper {
+  border: 1px solid $color-primary-700;
+  padding: 20px 5px 20px 5px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+  }
+}

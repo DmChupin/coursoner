@@ -1,1 +1,5 @@
-<p>course-list works!</p>
+<div>
+  <div *ngFor="let itemdata of data">
+    <app-course-list-item [item]="itemdata"></app-course-list-item>
+  </div>
+</div>

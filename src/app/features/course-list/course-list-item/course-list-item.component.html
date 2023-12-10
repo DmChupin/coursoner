@@ -1,0 +1,23 @@
+<div class="wrapper">
+  <div class="item">
+    <div class="item-image">
+      <img src="{{ item?.image }}" alt="Картинка" />
+    </div>
+    <div class="item-content">
+      <span class="section">
+        {{ item?.section }}
+      </span>
+      <span class="header">
+        {{ item?.header }}
+      </span>
+      <span class="author">
+        {{ item?.author }}
+      </span>
+      <span class="rate"> {{ item?.rating }} ({{ item?.gradeCount }}) </span>
+    </div>
+    <div item="item-buttons">
+      <button>Больше</button>
+      <button>Учить</button>
+    </div>
+  </div>
+</div>
