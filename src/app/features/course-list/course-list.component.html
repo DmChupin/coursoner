@@ -1,5 +1,18 @@
-<div>
-  <div *ngFor="let itemdata of data">
-    <app-course-list-item [item]="itemdata"></app-course-list-item>
+<div class="wrapper">
+  <div class="scroller">
+    <ng-template
+      let-currentCourses
+      let-next="next"
+      let-prev="prev"
+      [appHorizontalScroll]="data"
+      [itemsPerPage]="4"
+    >
+      <button (click)="prev()">Left</button>
+      <div *ngFor="let itemdata of currentCourses">
+        <app-course-list-item [item]="itemdata"></app-course-list-item>
+      </div>
+
+      <button (click)="next()">Right</button>
+    </ng-template>
   </div>
 </div>
