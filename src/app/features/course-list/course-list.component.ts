@@ -3,11 +3,17 @@ import { CourseListItemComponent } from './course-list-item/course-list-item.com
 import { CommonModule } from '@angular/common';
 import { CourseListItem } from '../../shared/interfaces/course.interface';
 import { HorizontalScrollDirective } from '../../shared/directives/horizontal-scroll/horizontal-scroll.directive';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-course-list',
   standalone: true,
-  imports: [CourseListItemComponent, CommonModule, HorizontalScrollDirective],
+  imports: [
+    CourseListItemComponent,
+    CommonModule,
+    HorizontalScrollDirective,
+    RouterLink,
+  ],
   templateUrl: './course-list.component.html',
   styleUrl: './course-list.component.scss',
 })
