@@ -1,0 +1,27 @@
+$color-black-700: #70737b;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.tabs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.tab-header {
+  &-item {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0;
+    font-size: 1.6rem;
+    color: $color-black-700;
+    margin-bottom: 5px;
+
+    &:hover {
+      color: black;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+$color-black-500: #d8dadd;
+.wrapper {
+  width: calc(100% - 80px);
+  border: 1px solid $color-black-500;
+  margin: 10px 20px 10px 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}

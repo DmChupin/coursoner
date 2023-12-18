@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { CourseListItem } from '../../shared/interfaces/course.interface';
 import { HorizontalScrollDirective } from '../../shared/directives/horizontal-scroll/horizontal-scroll.directive';
 import { RouterLink } from '@angular/router';
+import { TabsComponent } from '../../shared/components/tabs/tabs.component';
+import { TabComponent } from '../../shared/components/tabs/tab/tab.component';
 
 @Component({
   selector: 'app-course-list',
@@ -13,6 +15,8 @@ import { RouterLink } from '@angular/router';
     CommonModule,
     HorizontalScrollDirective,
     RouterLink,
+    TabsComponent,
+    TabComponent,
   ],
   templateUrl: './course-list.component.html',
   styleUrl: './course-list.component.scss',
@@ -84,6 +88,5 @@ export class CourseListComponent {
     },
   ];
 
-  left() {}
-  right() {}
+  tabNames = ['Linux', 'Angular', 'React', 'Java'];
 }

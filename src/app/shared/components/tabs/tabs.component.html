@@ -1,1 +1,10 @@
-<p>tabs works!</p>
+<div class="wrapper">
+  <div class="tabs">
+    <div *ngFor="let tabName of tabNames">
+      <div class="tab-header-item-wrapper">
+        <button class="tab-header-item">{{ tabName }}</button>
+      </div>
+    </div>
+  </div>
+  <ng-content></ng-content>
+</div>

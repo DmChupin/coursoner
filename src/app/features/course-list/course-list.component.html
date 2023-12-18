@@ -1,18 +1,37 @@
 <div class="wrapper">
-  <div class="scroller">
-    <ng-template
-      let-currentCourses
-      let-next="next"
-      let-prev="prev"
-      [appHorizontalScroll]="data"
-      [itemsPerPage]="4"
-    >
-      <button (click)="prev()">Left</button>
-      <div *ngFor="let itemdata of currentCourses">
-        <app-course-list-item [item]="itemdata"></app-course-list-item>
-      </div>
+  <app-tabs [tabNames]="tabNames">
+    <app-tab>
+      <div class="scroller">
+        <ng-template
+          let-currentCourses
+          let-next="next"
+          let-prev="prev"
+          [appHorizontalScroll]="data"
+          [itemsPerPage]="4"
+        >
+          <div class="carousel-button-wrapper">
+            <button
+              class="carousel-button carousel-button-prev"
+              (click)="prev()"
+            >
+              <
+            </button>
+          </div>
 
-      <button (click)="next()">Right</button>
-    </ng-template>
-  </div>
+          <div *ngFor="let itemdata of currentCourses">
+            <app-course-list-item [item]="itemdata"></app-course-list-item>
+          </div>
+
+          <div class="carousel-button-wrapper">
+            <button
+              class="carousel-button carousel-button-next"
+              (click)="next()"
+            >
+              >
+            </button>
+          </div>
+        </ng-template>
+      </div>
+    </app-tab>
+  </app-tabs>
 </div>

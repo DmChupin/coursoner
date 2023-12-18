@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <div class="item">
+  <div class="item" [routerLink]="['/sign-in']">
     <div class="item-image">
       <img src="{{ item?.image }}" alt="Картинка" />
     </div>
@@ -13,11 +13,10 @@
       <span class="author">
         {{ item?.author }}
       </span>
-      <span class="rate"> {{ item?.rating }} ({{ item?.gradeCount }}) </span>
-    </div>
-    <div item="item-buttons">
-      <button>Больше</button>
-      <button>Учить</button>
+      <div>
+        <span class="rate"> Рейтинг: {{ item?.rating }} </span>
+        <span class="gradeCount"> ({{ item?.gradeCount }}) </span>
+      </div>
     </div>
   </div>
 </div>
