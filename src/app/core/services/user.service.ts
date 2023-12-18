@@ -5,6 +5,7 @@ import {
   UserInterface,
   UserRegisterInterface,
 } from '../../shared/interfaces/user.interface';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,15 +13,19 @@ import {
 export class UserService {
   http = inject(HttpClient);
 
-  registerUser(user: UserRegisterInterface) {
+  registerUser(
+    user: UserRegisterInterface
+  ): Observable<{ user: UserInterface }> {
     return this.http.post<{ user: UserInterface }>('api/users', { user });
   }
 
-  authenticateUser(user: UserAuthenticateInterface) {
+  authenticateUser(
+    user: UserAuthenticateInterface
+  ): Observable<{ user: UserInterface }> {
     return this.http.post<{ user: UserInterface }>('api/users/login', { user });
   }
 
-  getUser() {
+  getUser(): Observable<{ user: UserInterface }> {
     return this.http.get<{ user: UserInterface }>('api/user');
   }
 }

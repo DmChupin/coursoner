@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <div class="item" [routerLink]="['/sign-in']">
+    <div class="item-image">
+      <img src="{{ item?.image }}" alt="Картинка" />
+    </div>
+    <div class="item-content">
+      <span class="section">
+        {{ item?.section }}
+      </span>
+      <span class="header">
+        {{ item?.header }}
+      </span>
+      <span class="author">
+        {{ item?.author }}
+      </span>
+      <div>
+        <span class="rate"> Рейтинг: {{ item?.rating }} </span>
+        <span class="gradeCount"> ({{ item?.gradeCount }}) </span>
+      </div>
+    </div>
+  </div>
+</div>

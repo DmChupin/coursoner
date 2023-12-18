@@ -1,0 +1,39 @@
+$color-primary-1000: #548d27;
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.image {
+  max-width: 70%;
+}
+
+.wrapper {
+  height: calc(100% - 70px);
+  width: 100%;
+  padding-top: 20px;
+}
+
+.button {
+  margin: 0px 5px 0px 5px;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #8bca58;
+  color: white;
+  background: #8bca58;
+  font-weight: 700;
+  line-height: 1.8;
+  font-size: large;
+  letter-spacing: -0.02rem;
+  cursor: pointer;
+}
+
+.text {
+  text-align: center;
+  color: $color-primary-1000;
+}
