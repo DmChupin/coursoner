@@ -1,4 +1,4 @@
-$color-black-500: #d8dadd;
+@import "app/shared/css/colors.scss";
 .wrapper {
   width: calc(100% - 80px);
   border: 1px solid $color-black-500;
@@ -6,4 +6,8 @@ $color-black-500: #d8dadd;
   padding: 20px;
   display: flex;
   justify-content: center;
+}
+
+.disabled {
+  display: none;
 }

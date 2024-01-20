@@ -1,6 +1,6 @@
 <div class="wrapper">
-  <app-tabs [tabNames]="tabNames">
-    <app-tab>
+  <app-tabs>
+    <app-tab [tabTittle]="'asd'" [active]="true">
       <div class="scroller">
         <ng-template
           let-currentCourses
@@ -33,5 +33,7 @@
         </ng-template>
       </div>
     </app-tab>
+
+    <app-tab [tabTittle]="'asd2'"> FEFEFEFFEFEF </app-tab>
   </app-tabs>
 </div>

@@ -1,5 +1,5 @@
-$color-primary-700: #8bca58;
-$color-black-700: #70737b;
+@import "app/shared/css/colors.scss";
+
 .wrapper {
   padding: 20px 5px 20px 5px;
   max-width: 400px;

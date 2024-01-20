@@ -1,8 +1,13 @@
 <div class="wrapper">
   <div class="tabs">
-    <div *ngFor="let tabName of tabNames">
+    <div *ngFor="let tab of tabs">
       <div class="tab-header-item-wrapper">
-        <button class="tab-header-item">{{ tabName }}</button>
+        <button
+          class="tab-header-item"
+          (click)="onSelect(tab)"
+        >
+          {{ tab.tabTittle }}
+        </button>
       </div>
     </div>
   </div>

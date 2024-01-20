@@ -1,4 +1,8 @@
-$color-black-700: #70737b;
+@import "app/shared/css/colors.scss";
+
+:host {
+  min-width: 100%;
+}
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -24,4 +28,8 @@ $color-black-700: #70737b;
       color: black;
     }
   }
+}
+
+.active-tab {
+  color: black;
 }

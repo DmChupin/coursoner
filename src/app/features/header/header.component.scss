@@ -1,9 +1,6 @@
 $shadow-grey: rgba(0, 0, 0, 0.08);
-$color-primary-700: #8bca58;
-$color-primary-800: #7abf47;
-$color-primary-900: #65ab3c;
-$color-black-430: #f3f4f5;
-$color-black-700: #70737b;
+
+@import "app/shared/css/colors.scss";
 
 .wrapper {
   height: 40px;
